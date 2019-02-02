@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>color_image_task</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/farbtastic.css"/>
+
+</head>
+
+<body class="h-100 w-100">
+
+<!-- Start your project here-->
+<div class=" container-fluid ">
+    <div class=" container ">
+        <div id="after" class=" row  ">
+
+            <button id="addimage" type="button" class="btn btn-default btn-rounded">ADD IMAGE</button>
+            <button id="even" type="button" class="btn btn-outline-secondary btn-rounded waves-effect"
+                    data-toggle="modal" data-target="#basicExampleModal">
+                even
+            </button>
+            <button id="odd" type="button" class="btn btn-outline-secondary btn-rounded waves-effect"
+                    data-toggle="modal" data-target="#basicExampleModal">
+                odd
+            </button>
+
+        </div>
+        <div id="rowid" class="row ">
+
+
+        </div>
+        <div id="rowid1" class="row ">
+
+        </div>
+
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">color_picker</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body ml-5 ">
+                        <div id="colorpicker"></div>
+                        <form><input type="text" id="color" name="color" value="#123456"/></form>
+
+                        <button id="addcolor" type="button" class="btn btn-outline-primary btn-rounded waves-effect"
+                                data-toggle="modal" data-target="#basicExampleModal">
+                            ADD COLOR
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- /Start your project here-->
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"
+        charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"
+        charset="utf-8"></script>
+
+
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+
+<script src="js/farbtastic.js"></script>
+
+
+<script>
+
+
+    $(document).ready(function () {
+        $('#addimage').click(function () {
+
+
+            var img_name = ["i3.jpg", "i8.jpg", "i6.jpg", "i1.jpg", "i2.jpg", "i7.jpg", "n1.jpg"];
+
+            var l = img_name.length;
+
+            var rnd_no = Math.floor(l * Math.random());
+            item = `<div class="col-3 m-3 card  div1 ">
+                    <img class="m-4" src="img/${img_name[rnd_no]}"   height='200' width='200'>
+                <p>Ami chauhan</p>
+                <h1>Java and web developer</h1>
+                </div>`;
+            $("#rowid").append(item);
+
+
+        });
+    });
+
+
+</script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#colorpicker').farbtastic('#color');
+
+
+    });
+
+
+</script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#even').click(function () {
+
+            $("#basicExampleModal").show();
+            $('#addcolor').click(function () {
+                var c = $('#color').val()
+
+                $('.div1:nth-child(even)').css("background-color", c)
+
+
+            });
+
+
+        });
+
+
+    });
+
+
+    $(document).ready(function () {
+
+        $('#odd').click(function () {
+
+            $("#basicExampleModal").show()
+
+
+            $('#addcolor').click(function () {
+                var c = $('#color').val()
+
+                $('.div1:nth-child(odd)').css("background-color", c)
+
+
+            });
+
+        });
+    });
+
+
+</script>
+
+
+</body>
+
+</html>
